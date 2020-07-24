@@ -1,0 +1,63 @@
+import React from 'react';
+import {withRouter} from 'react-router-dom'
+import PropTypes from 'prop-types';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import TableFooter from '@material-ui/core/TableFooter';
+import Paper from '@material-ui/core/Paper';
+import {AddBoxTwoTone} from '@material-ui/icons';
+import ProductRow from '../ProductRow/ProductRow';
+import {Consumer} from '../../context';
+import './Products.css';
+
+const products = (props) => {
+
+  const handleAddClick = () => {
+    props.history.push('/products/create');
+  }
+
+  return (
+    <TableContainer className="container" component={Paper}>
+      <Table className="table" size="small">
+        <TableHead>
+          <TableRow>
+            <TableCell>Name</TableCell>
+            <TableCell>Type</TableCell>
+            <TableCell>Color</TableCell>
+            <TableCell>Quantity</TableCell>
+            <TableCell/>
+            <TableCell style={{position: 'relative'}}>
+              <span className="add-btn" onClick={handleAddClick}>
+                <AddBoxTwoTone/>
+              </span>
+            </TableCell>
+          </TableRow>
+        </TableHead>
+        <Consumer>
+          {value => {
+            const {products} = value;
+            return (
+              <TableBody>
+                {products.map(product =>
+                  <ProductRow
+                    key={product.id} product={product}
+                  />
+                )}
+              </TableBody>
+            )
+          }}
+        </Consumer>
+      </Table>
+    </TableContainer>
+  );
+}
+
+products.porpTypes = {
+  history: PropTypes.object.isRequired,
+};
+
+export default withRouter(products);
