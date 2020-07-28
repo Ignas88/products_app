@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect  } from 'react-router-dom';
-import Products from './components/Products/Products';
-import ProductEdit from './components/ProductEdit/ProductEdit';
-import ProductView from './components/ProductView/ProductView';
-import ProductAdd from './components/ProductAdd/ProductAdd';
-import './App.css';
+import Products from './views/Products/Products';
+import ProductEdit from './views/ProductEdit/ProductEdit';
+import ProductView from './views/Product/Product';
+import ProductAdd from './views/ProductAdd/ProductAdd';
 
 import { Provider } from './context';
 

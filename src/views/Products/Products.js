@@ -10,7 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import TableFooter from '@material-ui/core/TableFooter';
 import Paper from '@material-ui/core/Paper';
 import {AddBoxTwoTone} from '@material-ui/icons';
-import ProductRow from '../ProductRow/ProductRow';
+import ProductRow from '../../components/ProductRow/ProductRow';
 import {Consumer} from '../../context';
 import './Products.css';
 
@@ -21,7 +21,7 @@ const products = (props) => {
   }
 
   return (
-    <TableContainer className="container" component={Paper}>
+    <TableContainer component={Paper}>
       <Table className="table" size="small">
         <TableHead>
           <TableRow>
@@ -29,6 +29,8 @@ const products = (props) => {
             <TableCell>Type</TableCell>
             <TableCell>Color</TableCell>
             <TableCell>Quantity</TableCell>
+            <TableCell>Price</TableCell>
+            <TableCell>Active</TableCell>
             <TableCell/>
             <TableCell style={{position: 'relative'}}>
               <span className="add-btn" onClick={handleAddClick}>
