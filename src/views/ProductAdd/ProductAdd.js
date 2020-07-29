@@ -20,7 +20,7 @@ const ProductAdd = () => {
         )
       }}
     </Consumer>
-  )
+  );
 }
 
 export default ProductAdd;

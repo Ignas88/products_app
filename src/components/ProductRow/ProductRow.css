@@ -35,3 +35,10 @@
 .row-disabled:hover {
     background-color: #d2d0ce;
 }
+
+.color {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #F5F5F5;
+}

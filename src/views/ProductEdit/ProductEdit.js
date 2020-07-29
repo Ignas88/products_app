@@ -19,7 +19,7 @@ const productEdit = (props) => {
         )
       }}
     </Consumer>
-  )
+  );
 }
 
 export default productEdit;

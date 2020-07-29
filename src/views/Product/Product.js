@@ -1,6 +1,6 @@
 import React from 'react';
-import {Consumer} from "../../context";
-import ProductForm from "../../components/ProductForm/ProductForm";
+import {Consumer} from '../../context';
+import ProductForm from '../../components/ProductForm/ProductForm';
 
 const product = (props) => {
   return (
@@ -14,7 +14,7 @@ const product = (props) => {
         )
       }}
     </Consumer>
-  )
+  );
 }
 
 export default product;

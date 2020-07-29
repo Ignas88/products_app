@@ -21,7 +21,21 @@ const reducer = (state, action) => {
         products: updatedProducts
       };
     case 'UPDATE_PRODUCT':
-      updatedProducts = state.products.map(product => product.id === action.payload.id ? (product = action.payload) : product);
+      const prevUpdatedProduct = state.products.find(product => product.id === action.payload.id);
+      let updatedProduct = {...action.payload};
+      if (prevUpdatedProduct.price !== action.payload.price) {
+        updatedProduct = {
+          ...updatedProduct,
+          priceHistory: [...prevUpdatedProduct.priceHistory, {date: new Date(), price: updatedProduct.price}],
+        }
+      }
+      if (prevUpdatedProduct.qty !== action.payload.qty) {
+        updatedProduct = {
+          ...updatedProduct,
+          qtyHistory: [...prevUpdatedProduct.qtyHistory, {date: new Date(), qty: updatedProduct.qty}],
+        }
+      }
+      updatedProducts = state.products.map(product => product.id === updatedProduct.id ? (product = updatedProduct) : product);
       setLocStorage('products', updatedProducts);
       return {
         ...state,
@@ -44,7 +58,9 @@ export class Provider extends Component {
         color: '#008000',
         active: true,
         qty: 40,
-        price: 5
+        price: 5,
+        priceHistory: [],
+        qtyHistory: []
       },
       {
         id: '2',
@@ -55,7 +71,9 @@ export class Provider extends Component {
         color: '#008000',
         active: true,
         qty: 10,
-        price: 20
+        price: 20,
+        priceHistory: [],
+        qtyHistory: []
       },
       {
         id: '3',
@@ -66,7 +84,9 @@ export class Provider extends Component {
         color: '#008000',
         active: true,
         qty: 30,
-        price: 6
+        price: 6,
+        priceHistory: [],
+        qtyHistory: []
       }
     ],
     dispatch: action => {

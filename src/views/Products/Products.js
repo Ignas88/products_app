@@ -1,13 +1,11 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom'
-import PropTypes from 'prop-types';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import TableFooter from '@material-ui/core/TableFooter';
 import Paper from '@material-ui/core/Paper';
 import {AddBoxTwoTone} from '@material-ui/icons';
 import ProductRow from '../../components/ProductRow/ProductRow';
@@ -28,8 +26,9 @@ const products = (props) => {
             <TableCell>Name</TableCell>
             <TableCell>Type</TableCell>
             <TableCell>Color</TableCell>
+            <TableCell>Weight, Kg</TableCell>
+            <TableCell>Price, €</TableCell>
             <TableCell>Quantity</TableCell>
-            <TableCell>Price</TableCell>
             <TableCell>Active</TableCell>
             <TableCell/>
             <TableCell style={{position: 'relative'}}>
@@ -57,9 +56,5 @@ const products = (props) => {
     </TableContainer>
   );
 }
-
-products.porpTypes = {
-  history: PropTypes.object.isRequired,
-};
 
 export default withRouter(products);
