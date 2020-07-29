@@ -12,7 +12,7 @@ import ProductRow from '../../components/ProductRow/ProductRow';
 import {Consumer} from '../../context';
 import './Products.css';
 
-const products = (props) => {
+const Products = (props) => {
 
   const handleAddClick = () => {
     props.history.push('/products/create');
@@ -44,9 +44,7 @@ const products = (props) => {
             return (
               <TableBody>
                 {products.map(product =>
-                  <ProductRow
-                    key={product.id} product={product}
-                  />
+                  <ProductRow key={product.id} product={product} />
                 )}
               </TableBody>
             )
@@ -57,4 +55,4 @@ const products = (props) => {
   );
 }
 
-export default withRouter(products);
+export default withRouter(Products);

@@ -31,7 +31,6 @@ const ProductForm = ({formMode, history, match, onSubmit}) => {
       const id = match.params.id;
       const product = getItem('products', id);
       if (product) {
-        console.log(product)
         setProduct(product);
       }
     }
@@ -88,11 +87,11 @@ const ProductForm = ({formMode, history, match, onSubmit}) => {
   };
 
   const typeOpts = productTypes.map(type =>
-    <MenuItem key={type.value} value={type.value}>{type.label}</MenuItem>
+    <MenuItem key={type.value} value={type.value} disableStrictModeCompat>{type.label}</MenuItem>
   );
 
   const colorOpts = productColors.map(color =>
-    <MenuItem key={color.value} value={color.value}>
+    <MenuItem key={color.value} value={color.value} >
       <div className="color-option">
         {color.label} <span className="color" style={{backgroundColor: color.value}}/>
       </div>
@@ -110,7 +109,7 @@ const ProductForm = ({formMode, history, match, onSubmit}) => {
           <TextField value={product.EAN ? product.EAN : ''} label="EAN" variant="outlined" size="small" disabled={true}/>
         : null}
         <TextField value={type} label="Type" name="type" variant="outlined" size="small" select
-                   onChange={e => handleInputChange(e)} disabled={formMode === 'VIEW'}>
+                   onChange={e => handleInputChange(e)} disabled={formMode === 'VIEW'} >
           {typeOpts}
         </TextField>
         <TextField value={color} label="Color" name="color" variant="outlined" size="small" select

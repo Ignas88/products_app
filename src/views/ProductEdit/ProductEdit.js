@@ -2,7 +2,7 @@ import React from 'react';
 import {Consumer} from '../../context';
 import ProductForm from '../../components/ProductForm/ProductForm';
 
-const productEdit = (props) => {
+const ProductEdit = (props) => {
 
   const handleProductSubmit = (dispatch, product) => {
     dispatch({type: 'UPDATE_PRODUCT', payload: product});
@@ -22,4 +22,4 @@ const productEdit = (props) => {
   );
 }
 
-export default productEdit;
+export default ProductEdit;
